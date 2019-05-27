@@ -1,0 +1,25 @@
+<table>
+  <tbody>
+    <tr class="info-columns">
+      <td></td>
+      <td *ngFor="let column of data.columnInfo; index as x">
+        <span *ngFor="let i of column">{{i}}<br/></span>
+      </td>
+    </tr>
+    <tr *ngFor="let row of data.rows;index as y">
+      <td class="info-rows">
+        <span *ngFor="let i of data.rowInfo[y]">{{i}}</span>
+      </td>
+      <td *ngFor="let cell of row;index as x" [class.filled]="cell.state === 2" [class.b-left]="x === 0"
+        [class.b-right]="x === (data.sizeX - 1)" [class.b-top]="y === 0" [class.b-bottom]="y === (data.sizeY - 1)">
+        <span *ngIf="cell.state === 0">?</span>
+        <span *ngIf="cell.state === 1"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="solve()">Solve</button>
+<button (click)="benchmark()">Benchmark</button>
+
+<router-outlet></router-outlet>
