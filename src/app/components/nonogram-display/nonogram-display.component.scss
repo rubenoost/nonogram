@@ -1,0 +1,53 @@
+$cell-size: 30px;
+
+table {
+  border-collapse: collapse;
+  font-family: monospace;
+  font-size: 1.5em;
+}
+
+td {
+  border: 1px solid black;
+  height: $cell-size;
+  width: $cell-size;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #DDDDDD;
+  }
+
+  &.filled {
+    background-color: black;
+  }
+
+  &.b-left {
+    border-left: 3px solid black;
+  }
+
+  &.b-right {
+    border-right: 3px solid black;
+  }
+
+  &.b-top {
+    border-top: 3px solid black;
+  }
+
+  &.b-bottom {
+    border-bottom: 3px solid black;
+  }
+
+  &.info-rows {
+    font-weight: bold;
+
+    &.correct {
+      background-color: lightgreen;
+    }
+  }
+
+  &.info-empty {
+    border: none;
+  }
+}
+
+

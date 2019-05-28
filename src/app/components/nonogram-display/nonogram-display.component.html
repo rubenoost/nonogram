@@ -1,0 +1,21 @@
+<table>
+  <tbody>
+    <tr *ngFor="let y of displayInfo.maxColumnInfoSize">
+      <td class="info-empty" *ngFor="let i of displayInfo.maxRowInfoSize"></td>
+      <td class="info-rows" [class.correct]="displayInfo.isColumnCorrect[x]" *ngFor="let column of nonogram.columnInfo; index as x">
+        {{column[y - displayInfo.maxColumnInfoSize.length + column.length]}}
+      </td>
+    </tr>
+    <tr *ngFor="let row of nonogram.rows;index as y">
+      <td class="info-rows" [class.correct]="displayInfo.isRowCorrect[y]" *ngFor="let i of displayInfo.maxRowInfoSize">
+        {{nonogram.rowInfo[y][i]}}
+      </td>
+      <td *ngFor="let cell of row;index as x" [class.filled]="cell.state === 1" [class.b-left]="x === 0"
+        [class.b-right]="x === (nonogram.sizeX - 1)" [class.b-top]="y === 0"
+        [class.b-bottom]="y === (nonogram.sizeY - 1)" (click)="cycleCell(x,y)">
+        <span *ngIf="cell.state === 0">-</span>
+        <span *ngIf="cell.state === 2"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
